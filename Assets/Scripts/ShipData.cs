@@ -3,9 +3,9 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "NewShip", menuName = "InfiniteSpaceShooter/Ship")]
 public class ShipData : ScriptableObject
 {
-    public string shipName;
-    public Sprite shipSprite;
-    public float life;
+    [SerializeField] private string shipName;
+    [SerializeField] private Sprite shipSprite;
+    [SerializeField] private float life;
     public float verticalSpeed;
-    public float scoreRate;
+    [SerializeField] private float scoreRate;
 }

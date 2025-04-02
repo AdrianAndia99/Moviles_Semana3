@@ -3,12 +3,12 @@ using UnityEngine.UI;
 
 public class ColorManager : MonoBehaviour
 {
-    public ColorPalette palette;
+    [SerializeField] private ColorPalette palette;
 
-    public Image[] uiElements;
-    public Text[] textElements;
-    public SpriteRenderer playerSprite;
-    public SpriteRenderer[] enemySprites;
+    [SerializeField] private Image[] uiElements;
+    [SerializeField] private Text[] textElements;
+    [SerializeField] private SpriteRenderer playerSprite;
+    [SerializeField] private SpriteRenderer[] enemySprites;
 
     private void Start()
     {

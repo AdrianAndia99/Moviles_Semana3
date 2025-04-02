@@ -2,8 +2,8 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    public bool useGyro;
-    private float speed;
+    [SerializeField] private bool useGyro;
+    [SerializeField] private float speed;
 
     private void Start()
     {
