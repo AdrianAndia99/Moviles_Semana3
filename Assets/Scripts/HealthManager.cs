@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 public class HealthManager : ScriptableObject
 {
     [SerializeField] private float maxHealth;
-    [SerializeField] private float currentHealth;
+    public float currentHealth;
 
     public void InitializeHealth()
     {
