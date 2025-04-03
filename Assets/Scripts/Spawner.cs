@@ -2,8 +2,8 @@ using UnityEngine;
 
 public class Spawner : MonoBehaviour
 {
-    public GameObject[] obstacles;
-    public Transform spawnPoint;
+    [SerializeField] private GameObject[] obstacles;
+    [SerializeField] private Transform spawnPoint;
     public float spawnRate = 2f;
     public float minY = -4f, maxY = 4f;
 

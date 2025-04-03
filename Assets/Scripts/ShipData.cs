@@ -5,7 +5,7 @@ public class ShipData : ScriptableObject
 {
     public string shipName;
     public Sprite shipSprite;
-    public float life;
+    public int life;
     public float verticalSpeed;
     public float scoreRate;
 }

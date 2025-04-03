@@ -4,8 +4,8 @@ using UnityEngine.SceneManagement;
 [CreateAssetMenu(fileName = "HealthManager", menuName = "InfiniteSpaceShooter/Health")]
 public class HealthManager : ScriptableObject
 {
-    public float maxHealth;
-    public float currentHealth;
+    [SerializeField] private float maxHealth;
+    [SerializeField] private float currentHealth;
 
     public void InitializeHealth()
     {

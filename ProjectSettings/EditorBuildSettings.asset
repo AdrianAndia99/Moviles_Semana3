@@ -12,8 +12,11 @@ EditorBuildSettings:
     path: Assets/Scenes/CharacterSelection.unity
     guid: a4df021dcdbd03d45b5d6c479ef8784d
   - enabled: 1
-    path: Assets/Scenes/MainGame.unity
+    path: Assets/Scenes/MainGameAccelerometer.unity
     guid: f08d310112d4cc94fb56d75bb6652f4b
+  - enabled: 1
+    path: Assets/Scenes/MainGameGyroscope.unity
+    guid: c9962eed6d874c24e9de2b8c031d9781
   - enabled: 1
     path: Assets/Scenes/Results.unity
     guid: 7215b783a77a8a64db3e85a53d917dd0

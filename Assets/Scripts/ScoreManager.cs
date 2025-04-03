@@ -4,7 +4,7 @@ using UnityEngine;
 public class ScoreManager : ScriptableObject
 {
     public float currentScore;
-    public float scoreRate;
+    [SerializeField] private float scoreRate;
 
     public void ResetScore()
     {

@@ -4,8 +4,8 @@ using TMPro;
 
 public class ResultScreen : MonoBehaviour
 {
-    public TextMeshPro scoreText;
-    public ScoreManager scoreManager;
+    [SerializeField] private TextMeshPro scoreText;
+    [SerializeField] private ScoreManager scoreManager;
 
     private void Start()
     {

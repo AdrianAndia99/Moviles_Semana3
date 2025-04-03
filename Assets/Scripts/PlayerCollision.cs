@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class PlayerCollision : MonoBehaviour
 {
-    public HealthManager healthManager;
+    [SerializeField] private HealthManager healthManager;
 
     private void Start()
     {
