@@ -11,8 +11,10 @@ public class EnemyMovement : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+
         if (collision.gameObject.CompareTag("Wall"))
         {
+            Debug.Log("Enemy collided with wall");
             Destroy(this.gameObject);
         }
     }
