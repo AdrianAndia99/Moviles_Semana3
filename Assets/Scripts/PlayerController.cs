@@ -8,7 +8,6 @@ public class PlayerController : MonoBehaviour
     private float scoreRate;
     private int maxHealth;
     private int currentHealth;
-    //private Vector3 startPosition = new Vector3(-10.92f, 1.09f, 0f);
 
     public SpriteRenderer spriteRenderer;
 
@@ -19,10 +18,6 @@ public class PlayerController : MonoBehaviour
             Input.gyro.enabled = true;
         }
     }
-    private void Start()
-    {
-        //transform.position = startPosition;
-    }
 
     private void Update()
     {
@@ -31,7 +26,6 @@ public class PlayerController : MonoBehaviour
 
         Vector3 newPosition = transform.position + new Vector3(0, movement, 0);
         newPosition.y = Mathf.Clamp(newPosition.y, -4f, 4f);
-        transform.position = newPosition;
     }
     public void SetShip(ShipData shipData)
     {

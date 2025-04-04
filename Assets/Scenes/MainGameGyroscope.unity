@@ -412,7 +412,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameData: {fileID: 11400000, guid: cd2e4e694e2e90442b4759378c4724b5, type: 2}
-  player: {fileID: 1709518447}
+  scoreManager: {fileID: 11400000, guid: 4f98e2b1d8aff0046b0cd519d2b85c7e, type: 2}
+  healthManager: {fileID: 11400000, guid: 0b1416986e2c28543be6117c214c04d1, type: 2}
 --- !u!4 &815242349
 Transform:
   m_ObjectHideFlags: 0
