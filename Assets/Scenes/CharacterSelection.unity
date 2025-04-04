@@ -276,7 +276,7 @@ GameObject:
   - component: {fileID: 233651929}
   - component: {fileID: 233651928}
   m_Layer: 5
-  m_Name: Stats
+  m_Name: StatsText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -412,7 +412,7 @@ GameObject:
   - component: {fileID: 423130104}
   - component: {fileID: 423130103}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: PreviousText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -548,7 +548,7 @@ GameObject:
   - component: {fileID: 474942437}
   - component: {fileID: 474942436}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: SelectorText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -684,7 +684,7 @@ GameObject:
   - component: {fileID: 497312415}
   - component: {fileID: 497312414}
   m_Layer: 5
-  m_Name: Image
+  m_Name: Ship
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -759,7 +759,7 @@ GameObject:
   - component: {fileID: 701158216}
   - component: {fileID: 701158215}
   m_Layer: 5
-  m_Name: Name
+  m_Name: NameText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -895,7 +895,7 @@ GameObject:
   - component: {fileID: 922953053}
   - component: {fileID: 922953052}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: Selected
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1029,12 +1029,13 @@ GameObject:
   m_Component:
   - component: {fileID: 973357354}
   - component: {fileID: 973357353}
+  - component: {fileID: 973357355}
   m_Layer: 0
   m_Name: Selector
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!114 &973357353
 MonoBehaviour:
@@ -1071,6 +1072,32 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &973357355
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 973357352}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fdabf95a06bb4ee409942d66b8723f91, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  palette: {fileID: 11400000, guid: 4b4504277026fa54eaf570ea8dc346b0, type: 2}
+  uiImageElements:
+  - {fileID: 2143469637}
+  - {fileID: 1955159510}
+  - {fileID: 192159793}
+  textElements:
+  - {fileID: 474942436}
+  - {fileID: 701158215}
+  - {fileID: 233651928}
+  - {fileID: 922953052}
+  - {fileID: 1503573177}
+  - {fileID: 423130103}
+  playerSprite: {fileID: 497312414}
+  enemySprites: []
 --- !u!1 &1143881734
 GameObject:
   m_ObjectHideFlags: 0
@@ -1235,7 +1262,7 @@ GameObject:
   - component: {fileID: 1503573178}
   - component: {fileID: 1503573177}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: NextText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

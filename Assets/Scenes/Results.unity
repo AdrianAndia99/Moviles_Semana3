@@ -129,12 +129,13 @@ GameObject:
   m_Component:
   - component: {fileID: 131604387}
   - component: {fileID: 131604386}
+  - component: {fileID: 131604388}
   m_Layer: 0
   m_Name: sceneManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!114 &131604386
 MonoBehaviour:
@@ -163,6 +164,29 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &131604388
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 131604385}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fdabf95a06bb4ee409942d66b8723f91, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  palette: {fileID: 11400000, guid: 4b4504277026fa54eaf570ea8dc346b0, type: 2}
+  uiImageElements:
+  - {fileID: 1544290805}
+  - {fileID: 732639974}
+  textElements:
+  - {fileID: 1200823215}
+  - {fileID: 599838807}
+  - {fileID: 579443466}
+  - {fileID: 159512226}
+  playerSprite: {fileID: 0}
+  enemySprites: []
 --- !u!1 &159512224
 GameObject:
   m_ObjectHideFlags: 0

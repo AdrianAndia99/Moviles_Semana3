@@ -14,6 +14,7 @@ public class ScoreManager : ScriptableObject
     public void UpdateScore()
     {
         currentScore += scoreRate * Time.deltaTime;
+        //currentScore +=Mathf.RoundToInt(scoreRate * Time.deltaTime) 
     }
     public void SetScoreRate(float rate)
     {
