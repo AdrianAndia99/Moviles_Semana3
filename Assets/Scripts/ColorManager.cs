@@ -1,27 +1,33 @@
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class ColorManager : MonoBehaviour
 {
     [SerializeField] private ColorPalette palette;
 
-    [SerializeField] private Image[] uiElements;
-    [SerializeField] private Text[] textElements;
-    [SerializeField] private SpriteRenderer playerSprite;
+    [SerializeField] private Image[] uiImageElements;
+    [SerializeField] private TextMeshProUGUI[] textElements;
+    [SerializeField] private Image playerSprite;
     [SerializeField] private SpriteRenderer[] enemySprites;
 
     private void Start()
     {
         ApplyColors();
     }
-
+    private void Update()
+    {
+        // Uncomment the line below to apply colors every frame (not recommended for performance)
+         ApplyColors();
+    }
     public void ApplyColors()
     {
         Camera.main.backgroundColor = palette.backgroundColor;
 
-        for (int i = 0; i < uiElements.Length; i++)
+        for (int i = 0; i < uiImageElements.Length; i++)
         {
-            uiElements[i].color = palette.buttonColor;
+            Debug.Log("nosewe");    
+            uiImageElements[i].color = palette.buttonColor;
         }
 
         for (int i = 0; i < textElements.Length; i++)

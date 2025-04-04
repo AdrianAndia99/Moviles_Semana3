@@ -11,6 +11,7 @@ public class PlayerController : MonoBehaviour
 
     public SpriteRenderer spriteRenderer;
 
+
     private void Awake()
     {
         if (useGyro)
