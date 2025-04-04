@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
@@ -9,7 +10,7 @@ public class PlayerController : MonoBehaviour
     private int maxHealth;
     private int currentHealth;
 
-    public SpriteRenderer spriteRenderer;
+    public Image spriteRenderer;
 
 
     private void Awake()
