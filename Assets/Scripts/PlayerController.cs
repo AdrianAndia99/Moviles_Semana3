@@ -4,30 +4,39 @@ using UnityEngine.UI;
 public class PlayerController : MonoBehaviour
 {
     [SerializeField] private bool useGyro;
-    [SerializeField] private float speedM;
+    private float speedM = 1000f;
     
     private float scoreRate;
     private int maxHealth;
     private int currentHealth;
+
+    [SerializeField] private RectTransform rectTransform;
 
     public Image spriteRenderer;
 
 
     private void Awake()
     {
+        rectTransform = GetComponent<RectTransform>();
+
         if (useGyro)
         {
             Input.gyro.enabled = true;
+            Debug.Log("Gyroscope enabled: " + Input.gyro.enabled);
         }
     }
 
     private void Update()
     {
-        float moveInput = useGyro ? Input.gyro.rotationRateUnbiased.y : Input.acceleration.y;
+        float moveInput = Input.gyro.rotationRateUnbiased.y;
         float movement = moveInput * speedM * Time.deltaTime;
 
-        Vector3 newPosition = transform.position + new Vector3(0, movement, 0);
-        newPosition.y = Mathf.Clamp(newPosition.y, -4f, 4f);
+        Vector2 newPosition = rectTransform.anchoredPosition + new Vector2(0, movement);
+        newPosition.y = Mathf.Clamp(newPosition.y, -400f, 400f);
+
+        rectTransform.anchoredPosition = newPosition;
+
+        Debug.Log("Gyro: " + Input.gyro.rotationRateUnbiased.y);
     }
     public void SetShip(ShipData shipData)
     {

@@ -9,17 +9,24 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-       ShipData selectedShip = gameData.selectedShip;
-       player.SetShip(gameData.selectedShip);
+        ShipData selectedShip = gameData.selectedShip;
 
         if (selectedShip != null)
         {
+            player.SetShip(selectedShip);
             scoreManager.SetScoreRate(selectedShip.scoreRate);
             healthManager.SetMaxHealth(selectedShip.life);
             healthManager.InitializeHealth();
             scoreManager.ResetScore();
+
+            Debug.Log("Ship loaded from GameData: " + selectedShip.shipName);
+        }
+        else
+        {
+            Debug.LogWarning("No ship selected in GameData!");
         }
     }
+
     private void Update()
     {
         scoreManager.UpdateScore();
