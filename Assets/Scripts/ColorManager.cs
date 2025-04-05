@@ -35,8 +35,10 @@ public class ColorManager : MonoBehaviour
             textElements[i].color = palette.uiTextColor;
         }
 
-        if (playerSprite != null||playerInGame!=null)
+        if (playerSprite != null)
             playerSprite.color = palette.playerColor;
+  
+        if ( playerInGame != null)
             playerInGame.color = palette.playerColor;
 
         for (int i = 0; i < enemySprites.Length; i++)
