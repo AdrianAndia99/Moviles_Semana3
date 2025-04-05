@@ -29,7 +29,7 @@ public class PlayerController : MonoBehaviour
         float movement = moveInput * speedM  ;
 
         Vector3 newPosition = transform.position + new Vector3(0, movement,0);
-        newPosition.y = Mathf.Clamp(newPosition.y, -133f, 133f);
+        newPosition.y = Mathf.Clamp(newPosition.y, -3.9f, 5.6f);
 
         transform.position = newPosition;
 
