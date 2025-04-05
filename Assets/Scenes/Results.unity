@@ -187,6 +187,7 @@ MonoBehaviour:
   - {fileID: 159512226}
   playerSprite: {fileID: 0}
   enemySprites: []
+  playerInGame: {fileID: 0}
 --- !u!1 &159512224
 GameObject:
   m_ObjectHideFlags: 0
@@ -199,7 +200,7 @@ GameObject:
   - component: {fileID: 159512227}
   - component: {fileID: 159512226}
   m_Layer: 5
-  m_Name: Text (TMP) (1)
+  m_Name: Score
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -244,9 +245,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Score:
-
-'
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: e7caa818ebadd754cb59c9f2c371e1c7, type: 2}
   m_sharedMaterial: {fileID: -5933475387501559569, guid: e7caa818ebadd754cb59c9f2c371e1c7, type: 2}
@@ -732,6 +731,52 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 732639971}
   m_CullTransparentMesh: 1
+--- !u!1 &1118517323
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1118517325}
+  - component: {fileID: 1118517324}
+  m_Layer: 0
+  m_Name: ScoreManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1118517324
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1118517323}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31c294c7a798a214b8fab845bad9d191, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scoreText: {fileID: 159512226}
+  scoreManager: {fileID: 11400000, guid: 4f98e2b1d8aff0046b0cd519d2b85c7e, type: 2}
+--- !u!4 &1118517325
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1118517323}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -4.786983, y: 1.3030666, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1200823213
 GameObject:
   m_ObjectHideFlags: 0
@@ -744,7 +789,7 @@ GameObject:
   - component: {fileID: 1200823216}
   - component: {fileID: 1200823215}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: Results
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1409,3 +1454,4 @@ SceneRoots:
   - {fileID: 1908355031}
   - {fileID: 1791147564}
   - {fileID: 131604387}
+  - {fileID: 1118517325}

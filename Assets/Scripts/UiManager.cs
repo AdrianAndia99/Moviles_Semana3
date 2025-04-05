@@ -10,7 +10,7 @@ public class UIManager : MonoBehaviour
 
     private void Update()
     {
-        scoreText.text = "Score: " + scoreData.currentScore.ToString("F1");
-        healthText.text = "Health: " + healthData.currentHealth.ToString("F0");
+        scoreText.text = "Puntos: " + scoreData.currentScore.ToString("F1");
+        healthText.text = "Vida: " + healthData.currentHealth.ToString("F0");
     }
 }

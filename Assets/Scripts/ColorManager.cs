@@ -18,7 +18,6 @@ public class ColorManager : MonoBehaviour
     }
     private void Update()
     {
-        // Uncomment the line below to apply colors every frame (not recommended for performance)
          ApplyColors();
     }
     public void ApplyColors()

@@ -14,7 +14,14 @@ public class EnemyMovement : MonoBehaviour
 
         if (collision.gameObject.CompareTag("Wall"))
         {
-            Debug.Log("Enemy collided with wall");
+            Debug.Log("Enemy collide");
+            Destroy(this.gameObject);
+        }
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
             Destroy(this.gameObject);
         }
     }

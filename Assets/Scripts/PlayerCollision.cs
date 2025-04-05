@@ -8,10 +8,9 @@ public class PlayerCollision : MonoBehaviour
     {
         healthManager.InitializeHealth();
     }
-
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Enemy") || collision.CompareTag("Obstacle"))
+        if (collision.gameObject.CompareTag("Enemy"))
         {
             healthManager.TakeDamage(1);
         }

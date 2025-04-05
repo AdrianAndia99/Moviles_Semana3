@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -10,16 +11,11 @@ public class PlayerController : MonoBehaviour
     private int maxHealth;
     private int currentHealth;
 
-    [SerializeField] private RectTransform rectTransform;
 
     public SpriteRenderer spriteRenderer;
 
-
-
     private void Awake()
     {
-        //rectTransform = GetComponent<RectTransform>();
-
         if (useGyro)
         {
             Input.gyro.enabled = true;
@@ -37,7 +33,6 @@ public class PlayerController : MonoBehaviour
 
         transform.position = newPosition;
 
-        //Debug.Log("Gyro: " + Input.gyro.rotationRateUnbiased.y);
         Debug.Log($"Gyro active: {Input.gyro.enabled}, Rotation Y: {Input.gyro.rotationRateUnbiased.y}");
 
     }
