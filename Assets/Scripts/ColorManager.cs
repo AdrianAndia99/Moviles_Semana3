@@ -10,6 +10,7 @@ public class ColorManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI[] textElements;
     [SerializeField] private Image playerSprite;
     [SerializeField] private SpriteRenderer[] enemySprites;
+    [SerializeField] private SpriteRenderer playerInGame;
 
     private void Start()
     {
@@ -35,8 +36,9 @@ public class ColorManager : MonoBehaviour
             textElements[i].color = palette.uiTextColor;
         }
 
-        if (playerSprite != null)
+        if (playerSprite != null||playerInGame!=null)
             playerSprite.color = palette.playerColor;
+            playerInGame.color = palette.playerColor;
 
         for (int i = 0; i < enemySprites.Length; i++)
         {

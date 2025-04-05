@@ -4,7 +4,7 @@ using UnityEngine.UI;
 public class PlayerController : MonoBehaviour
 {
     [SerializeField] private bool useGyro;
-    private float speedM = 1000f;
+    public float speedM = 0f;
     
     private float scoreRate;
     private int maxHealth;
@@ -12,12 +12,13 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField] private RectTransform rectTransform;
 
-    public Image spriteRenderer;
+    public SpriteRenderer spriteRenderer;
+
 
 
     private void Awake()
     {
-        rectTransform = GetComponent<RectTransform>();
+        //rectTransform = GetComponent<RectTransform>();
 
         if (useGyro)
         {
@@ -29,14 +30,16 @@ public class PlayerController : MonoBehaviour
     private void Update()
     {
         float moveInput = Input.gyro.rotationRateUnbiased.y;
-        float movement = moveInput * speedM * Time.deltaTime;
+        float movement = moveInput * speedM  ;
 
-        Vector2 newPosition = rectTransform.anchoredPosition + new Vector2(0, movement);
-        newPosition.y = Mathf.Clamp(newPosition.y, -400f, 400f);
+        Vector3 newPosition = transform.position + new Vector3(0, movement,0);
+        newPosition.y = Mathf.Clamp(newPosition.y, -133f, 133f);
 
-        rectTransform.anchoredPosition = newPosition;
+        transform.position = newPosition;
 
-        Debug.Log("Gyro: " + Input.gyro.rotationRateUnbiased.y);
+        //Debug.Log("Gyro: " + Input.gyro.rotationRateUnbiased.y);
+        Debug.Log($"Gyro active: {Input.gyro.enabled}, Rotation Y: {Input.gyro.rotationRateUnbiased.y}");
+
     }
     public void SetShip(ShipData shipData)
     {
