@@ -9,7 +9,6 @@ public class ShipSelection : MonoBehaviour
     [SerializeField] private Image shipImage;
     [SerializeField] private TextMeshProUGUI shipName;
     [SerializeField] private TextMeshProUGUI statsText;
-
     [SerializeField] private GameData gameData;
 
     private int currentIndex = 0;
@@ -42,6 +41,6 @@ public class ShipSelection : MonoBehaviour
         ShipData currentShip = ships[currentIndex];
         shipImage.sprite = currentShip.shipSprite;
         shipName.text = currentShip.shipName;
-        statsText.text = $"Velocidad: {currentShip.verticalSpeed}\nVida: {currentShip.life}";
+        statsText.text = $"Velocidad: {currentShip.verticalSpeed}\nVida: {currentShip.life}\nCadencia: {currentShip.cadence}";
     }
 }
