@@ -30,7 +30,7 @@ public class PlayerAccelerometer : MonoBehaviour
         newPosition.y = Mathf.Clamp(newPosition.y, -658f, 658f);
         rectTransform.anchoredPosition = newPosition;
         //recttranform -> tranform.position
-        Debug.Log("Accel Y: " + Input.acceleration.y);
+       // Debug.Log("Accel Y: " + Input.acceleration.y);
     }
     public void SetShip(ShipData shipData)
     {
@@ -43,6 +43,6 @@ public class PlayerAccelerometer : MonoBehaviour
         {
             spriteRenderer.sprite = shipData.shipSprite;
         }
-        Debug.Log("Ship set: " + shipData.shipName);
+        //Debug.Log("Ship set: " + shipData.shipName);
     }
 }
