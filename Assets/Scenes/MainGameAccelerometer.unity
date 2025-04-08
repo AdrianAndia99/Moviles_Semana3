@@ -128,8 +128,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 106700540}
+  - component: {fileID: 106700541}
   m_Layer: 0
-  m_Name: ObjectPooling
+  m_Name: EnemyPooling
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -150,6 +151,23 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &106700541
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 106700539}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dea26cd9131e97148a576ec5a42d2133, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _obstacle: {fileID: 11400000, guid: 091b49ed7aa37014aa1c608af053206b, type: 2}
+  spawnRate: 1
+  canSpawn: 1
+  spawnRangeY: {x: -4, y: 4}
+  spawnX: 10
 --- !u!1 &372805741
 GameObject:
   m_ObjectHideFlags: 0
@@ -489,8 +507,6 @@ MonoBehaviour:
   spriteRenderer: {fileID: 673075548}
   projectilePool: {fileID: 11400000, guid: 90685f2e4a0942f41a2745e10268829f, type: 2}
   firePoint: {fileID: 1032122979}
-  projectilePool: {fileID: 11400000, guid: 90685f2e4a0942f41a2745e10268829f, type: 2}
-  firePoint: {fileID: 0}
 --- !u!212 &673075548
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1246,7 +1262,7 @@ GameObject:
   - component: {fileID: 1876889709}
   - component: {fileID: 1876889708}
   m_Layer: 0
-  m_Name: PoolController
+  m_Name: ObstaclePoolController
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

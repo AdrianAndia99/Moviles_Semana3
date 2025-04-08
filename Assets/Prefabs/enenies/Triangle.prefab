@@ -149,6 +149,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
+  obstacleType: {fileID: 11400000, guid: 091b49ed7aa37014aa1c608af053206b, type: 2}
+  myRigidbody: {fileID: 3878196554953295896}
 --- !u!50 &3878196554953295896
 Rigidbody2D:
   serializedVersion: 5
