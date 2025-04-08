@@ -6,6 +6,10 @@ public class Projectile : MonoBehaviour
     public float speed = 10f;
     private Rigidbody2D rb;
 
+    private void Start()
+    {
+        transform.rotation = Quaternion.Euler(0f, 0f, 90f);
+    }
     public void SetPool(ProjectilePoolSO poolSO)
     {
         pool = poolSO;
