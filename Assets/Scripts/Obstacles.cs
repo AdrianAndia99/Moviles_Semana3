@@ -4,6 +4,7 @@ public class Obstacles : MonoBehaviour
 {
     [SerializeField] private SimpleObjectPooling obstacleType;
     [SerializeField] private Rigidbody2D myRigidbody;
+    [SerializeField] private HealthManager healthManager;
     [SerializeField] float speed = 5f;
     private void Update()
     {
@@ -26,6 +27,7 @@ public class Obstacles : MonoBehaviour
         {
             isSetUp = false;
             obstacleType.ObjectReturn(this.gameObject);
+            healthManager.TakeDamage(1);
         }
     }
     private bool isSetUp;

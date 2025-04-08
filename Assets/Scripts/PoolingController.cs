@@ -6,7 +6,7 @@ public class PoolingController : MonoBehaviour
 {
     [SerializeField] private SimpleObjectPooling _obstacle;
     [SerializeField] private float spawnRate = 2f;
-    [SerializeField] private bool canSpawn;
+    [SerializeField] private bool canSpawn = true;
     [SerializeField] private Vector2 spawnRangeY = new Vector2(-4f, 4f); 
     [SerializeField] private float spawnX = 10f;
 
@@ -27,15 +27,6 @@ public class PoolingController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        /*_count += Time.deltaTime;
-
-        if(_count > fireRate && canShoot)
-        {
-            obstacle.GetObject();
-
-            _count = 0;
-        }
-*/
 
         if (!canSpawn) return;
 

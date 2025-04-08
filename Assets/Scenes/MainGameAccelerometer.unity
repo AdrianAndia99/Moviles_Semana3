@@ -487,6 +487,8 @@ MonoBehaviour:
   useGyro: 1
   speedM: 20
   spriteRenderer: {fileID: 673075548}
+  projectilePool: {fileID: 11400000, guid: 90685f2e4a0942f41a2745e10268829f, type: 2}
+  firePoint: {fileID: 0}
 --- !u!212 &673075548
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1230,9 +1232,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _obstacle: {fileID: 11400000, guid: bfca254091a20db4991db95c9fe74b5e, type: 2}
   spawnRate: 2
-  canSpawn: 0
-  spawnX: {x: -7, y: 7}
-  spawnY: 6
+  canSpawn: 1
+  spawnRangeY: {x: -4, y: 4}
+  spawnX: 10
 --- !u!4 &1876889709
 Transform:
   m_ObjectHideFlags: 0
