@@ -1,0 +1,42 @@
+using UnityEngine;
+
+public class Projectile : MonoBehaviour
+{
+    private ProjectilePoolSO pool;
+    public float speed = 10f;
+    private Rigidbody2D rb;
+
+    public void SetPool(ProjectilePoolSO poolSO)
+    {
+        pool = poolSO;
+    }
+    private void OnEnable()
+    {
+        if (rb == null)
+        {
+            rb = GetComponent<Rigidbody2D>();
+        }
+
+        rb.linearVelocity = Vector2.right * speed;
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Obstacle"))
+        {
+            Destroy(collision.gameObject);
+            if (pool != null)
+            {
+                pool.ReturnToPool(gameObject);
+            }
+        }
+
+    }
+    private void OnDisable()
+    {
+        if (rb != null)
+        {
+            rb.linearVelocity = Vector2.zero;
+        }
+    }
+}

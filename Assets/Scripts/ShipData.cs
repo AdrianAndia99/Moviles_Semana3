@@ -10,4 +10,5 @@ public class ShipData : ScriptableObject
     public int life;
     public float verticalSpeed;
     public int scoreRate;
+    public float cadence;
 }

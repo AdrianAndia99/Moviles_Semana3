@@ -18,3 +18,4 @@ MonoBehaviour:
   life: 2
   verticalSpeed: 5
   scoreRate: 3
+  cadence: 0.5

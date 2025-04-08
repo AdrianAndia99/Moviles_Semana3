@@ -11,8 +11,14 @@ public class PlayerController : MonoBehaviour
     private int maxHealth;
     private int currentHealth;
 
-
     public SpriteRenderer spriteRenderer;
+
+    [SerializeField] private ProjectilePoolSO projectilePool;
+    [SerializeField] private Transform firePoint;
+    private float fireRate;
+
+    private bool isFiring = false;
+    private float nextFireTime;
 
     private void Awake()
     {
@@ -35,6 +41,21 @@ public class PlayerController : MonoBehaviour
 
         Debug.Log($"Gyro active: {Input.gyro.enabled}, Rotation Y: {Input.gyro.rotationRateUnbiased.y}");
 
+        if (Input.touchCount > 0 && Input.GetTouch(0).phase != TouchPhase.Ended)
+        {
+            isFiring = true;
+        }
+        else
+        {
+            isFiring = false;
+        }
+
+        if (isFiring && Time.time >= nextFireTime)
+        {
+            FireProjectile();
+            nextFireTime = Time.time + fireRate;
+        }
+
     }
     public void SetShip(ShipData shipData)
     {
@@ -42,11 +63,22 @@ public class PlayerController : MonoBehaviour
         scoreRate = shipData.scoreRate;
         maxHealth = shipData.life;
         currentHealth = maxHealth;
+        fireRate = shipData.cadence;
 
         if (spriteRenderer != null && shipData.shipSprite != null)
         {
             spriteRenderer.sprite = shipData.shipSprite;
         }
         Debug.Log("Ship set: " + shipData.shipName);
+    }
+    private void FireProjectile()
+    {
+        GameObject projectile = projectilePool.GetPooledObject();
+        if (projectile != null)
+        {
+            projectile.transform.position = firePoint.position;
+            projectile.transform.rotation = Quaternion.identity;
+            projectile.SetActive(true);
+        }
     }
 }
