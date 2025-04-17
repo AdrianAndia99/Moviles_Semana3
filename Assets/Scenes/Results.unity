@@ -1000,8 +1000,8 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 131604386}
         m_TargetAssemblyTypeName: SceneLoader, Assembly-CSharp
-        m_MethodName: LoadScene
-        m_Mode: 5
+        m_MethodName: OnBackToMenu
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -1186,7 +1186,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1791147562
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1258,7 +1258,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1877669983}
   - component: {fileID: 1877669982}
-  - component: {fileID: 1877669981}
   - component: {fileID: 1877669984}
   m_Layer: 0
   m_Name: Main Camera
@@ -1267,14 +1266,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!81 &1877669981
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1877669980}
-  m_Enabled: 1
 --- !u!20 &1877669982
 Camera:
   m_ObjectHideFlags: 0

@@ -20,13 +20,7 @@ public class HealthManager : ScriptableObject
         currentHealth -= amount;
         if (currentHealth <= 0)
         {
-            GameOver();
+            SceneGlobalManager.Instance.ShowResults();
         }
-    }
-
-    private void GameOver()
-    {
-        SceneManager.LoadScene("Results");
-        Debug.Log("Game Over!");
     }
 }
