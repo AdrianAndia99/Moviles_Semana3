@@ -842,6 +842,55 @@ Transform:
   m_Children: []
   m_Father: {fileID: 711992900}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1303212693
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1303212695}
+  - component: {fileID: 1303212694}
+  m_Layer: 0
+  m_Name: ObstaclePoolController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1303212694
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1303212693}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dea26cd9131e97148a576ec5a42d2133, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _enemy: {fileID: 11400000, guid: bfca254091a20db4991db95c9fe74b5e, type: 2}
+  spawnRate: 2
+  canSpawn: 1
+  spawnRangeY: {x: -4, y: 4}
+  spawnX: 10
+--- !u!4 &1303212695
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1303212693}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 228.87787, y: 673.9201, z: 8.474071}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1560249531
 GameObject:
   m_ObjectHideFlags: 0
@@ -1246,14 +1295,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0fc71b05863ab4247a7e65644f47e86a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  obstacles:
-  - {fileID: 3802479013008856525, guid: 0adb2cc4c423bfb498d7cd26d7420949, type: 3}
-  - {fileID: 3766702189205901211, guid: 24312ec8cf138b6408eaa9aa99581a56, type: 3}
-  - {fileID: 3096994125340143689, guid: ce9557b9a80d2c344a1fb396e154ac0f, type: 3}
-  spawnPoint: {fileID: 1746313689}
-  spawnRate: 2
-  minY: -4
-  maxY: 4
 --- !u!1 &1877669980
 GameObject:
   m_ObjectHideFlags: 0
@@ -1420,7 +1461,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dea26cd9131e97148a576ec5a42d2133, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _obstacle: {fileID: 11400000, guid: bfca254091a20db4991db95c9fe74b5e, type: 2}
+  _enemy: {fileID: 11400000, guid: 091b49ed7aa37014aa1c608af053206b, type: 2}
   spawnRate: 2
   canSpawn: 1
   spawnRangeY: {x: -4, y: 4}
@@ -1454,3 +1495,4 @@ SceneRoots:
   - {fileID: 786386086}
   - {fileID: 711992900}
   - {fileID: 1957240679}
+  - {fileID: 1303212695}

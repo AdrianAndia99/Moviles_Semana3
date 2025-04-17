@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PoolingController : MonoBehaviour
 {
-    [SerializeField] private SimpleObjectPooling _obstacle;
+    [SerializeField] private SimpleObjectPooling _enemy;
     [SerializeField] private float spawnRate = 2f;
     [SerializeField] private bool canSpawn = true;
     [SerializeField] private Vector2 spawnRangeY = new Vector2(-4f, 4f); 
@@ -16,13 +16,13 @@ public class PoolingController : MonoBehaviour
 
     private void Awake()
     {
-        _obstacle.SetUp(this.transform);
-        _obstacle.onEnableObject += CountSpawnedObstacles;
+        _enemy.SetUp(this.transform);
+        _enemy.onEnableObject += CountSpawnedEnemies;
     }
 
     private void OnDisable()
     {
-        _obstacle.onEnableObject -= CountSpawnedObstacles;
+        _enemy.onEnableObject -= CountSpawnedEnemies;
     }
 
     private void FixedUpdate()
@@ -34,7 +34,7 @@ public class PoolingController : MonoBehaviour
 
         if (_timer >= spawnRate)
         {
-            GameObject obstacle = _obstacle.GetObject();
+            GameObject obstacle = _enemy.GetObject();
             float randomY = UnityEngine.Random.Range(spawnRangeY.x, spawnRangeY.y);
             obstacle.transform.position = new Vector3(spawnX, randomY, 0f);
 
@@ -42,7 +42,7 @@ public class PoolingController : MonoBehaviour
         }
     }
 
-    private void CountSpawnedObstacles()
+    private void CountSpawnedEnemies()
     {
         _countObstacles++;
         Debug.Log("Obstáculos generados: " + _countObstacles);
