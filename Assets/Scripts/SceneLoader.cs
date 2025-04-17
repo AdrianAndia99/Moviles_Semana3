@@ -1,31 +1,24 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
-
 public class SceneLoader : MonoBehaviour
 {
-    [SerializeField] private string[] randomScenes;
-
-
-
-    public void LoadScene(string sceneName)
+    public void OnSelectButton()
     {
-        SceneManager.LoadScene(sceneName);
+        SceneGlobalManager.Instance.LoadSelector();
     }
-   
-
-    public void LoadRandomScene()
+    public void OnPlayButton()
     {
-        int randomIndex = Random.Range(0, randomScenes.Length);
-        SceneManager.LoadScene(randomScenes[randomIndex]);
+        SceneGlobalManager.Instance.LoadGameWithResults();
     }
 
-    public void QuitGame()
+    public void OnBackToMenu()
     {
-        #if UNITY_EDITOR
-                UnityEditor.EditorApplication.isPlaying = false;
-        
-        #else
-                                        Application.Quit();
-        #endif
+        SceneGlobalManager.Instance.UnloadGameAndResults();
+        SceneManager.LoadSceneAsync("MainMenu", LoadSceneMode.Single);
+
+    }
+    public void OnQuitButton()
+    {
+        SceneGlobalManager.Instance.QuitGame();
     }
 }

@@ -216,7 +216,7 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 1165210317}
         m_TargetAssemblyTypeName: SceneLoader, Assembly-CSharp
-        m_MethodName: LoadRandomScene
+        m_MethodName: OnPlayButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1236,9 +1236,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3aab01f21edef9d4b9c13cfc8c4cc18c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  randomScenes:
-  - MainGameGyroscope
-  - MainGameAccelerometer
 --- !u!4 &1165210318
 Transform:
   m_ObjectHideFlags: 0
