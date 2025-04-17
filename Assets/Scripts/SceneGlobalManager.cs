@@ -61,16 +61,27 @@ public class SceneGlobalManager : MonoBehaviour
         AsyncOperation operation = SceneManager.LoadSceneAsync(initialScene);
         operation.allowSceneActivation = false;
 
+        float targetProgress = 0f;
+
         while (!operation.isDone)
         {
-            float progress = Mathf.Clamp01(operation.progress / 0.9f);
+            float actualProgress = Mathf.Clamp01(operation.progress / 0.9f);
+
+            targetProgress = Mathf.MoveTowards(targetProgress, actualProgress, Time.deltaTime * 0.5f);
 
             if (loadingBarFill != null)
-                loadingBarFill.fillAmount = progress;
+                loadingBarFill.fillAmount = targetProgress;
 
-            if (progress >= 1f)
+            if (targetProgress >= 0.9f)
             {
-                yield return new WaitForSeconds(0.5f);
+                yield return new WaitForSeconds(1f);
+
+                while (loadingBarFill.fillAmount < 1f)
+                {
+                    loadingBarFill.fillAmount += Time.deltaTime;
+                    yield return null;
+                }
+
                 operation.allowSceneActivation = true;
             }
 
