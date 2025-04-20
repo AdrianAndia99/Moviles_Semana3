@@ -138,4 +138,39 @@ public class SceneGlobalManager : MonoBehaviour
             }
         }
     }
+
+
+    public void RestartGame()
+    {
+        SceneManager.UnloadSceneAsync("MainGameGyroscope");
+        StartCoroutine(ReloadGameScene());
+    }
+
+    private IEnumerator ReloadGameScene()
+    {
+        AsyncOperation gameLoad = SceneManager.LoadSceneAsync("MainGameGyroscope", LoadSceneMode.Additive);
+        yield return gameLoad;
+
+        Scene resultsScene = SceneManager.GetSceneByName("Results");
+        if (resultsScene.IsValid())
+        {
+            GameObject[] rootObjects = resultsScene.GetRootGameObjects();
+            for (int i = 0; i < rootObjects.Length; i++)
+            {
+                rootObjects[i].SetActive(false);
+            }
+        }
+
+        Scene gameScene = SceneManager.GetSceneByName("MainGameGyroscope");
+        if (gameScene.IsValid())
+        {
+            GameObject[] rootObjects = gameScene.GetRootGameObjects();
+            for (int i = 0; i < rootObjects.Length; i++)
+            {
+                rootObjects[i].SetActive(true);
+            }
+        }
+    }
+
+
 }

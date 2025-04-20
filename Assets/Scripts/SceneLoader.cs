@@ -21,4 +21,9 @@ public class SceneLoader : MonoBehaviour
     {
         SceneGlobalManager.Instance.QuitGame();
     }
+    public void OnPlayAgain()
+    {
+        SceneGlobalManager.Instance.RestartGame();
+    }
+
 }
