@@ -10,6 +10,9 @@ public class SceneGlobalManager : MonoBehaviour
     [Header("Carga de Escena")]
     [SerializeField] private Image loadingBarFill;
     private string initialScene = "MainMenu";
+    [SerializeField] private AudioMixerSO masterMixerSO;
+    [SerializeField] private AudioMixerSO sfxMixerSO;
+    [SerializeField] private AudioMixerSO musicMixerSO;
 
     private void Awake()
     {
@@ -29,6 +32,9 @@ public class SceneGlobalManager : MonoBehaviour
         {
             StartCoroutine(LoadInitialSceneAsync());
         }
+        masterMixerSO.EnableSound();
+        sfxMixerSO.EnableSound();
+        musicMixerSO.EnableSound();
     }
 
     public void LoadSelector()
@@ -137,5 +143,32 @@ public class SceneGlobalManager : MonoBehaviour
                 rootObjects[i].SetActive(true);
             }
         }
+    }
+
+    //adicional lab6 moviles
+    public void UpdateMasterVolume(float value)
+    {
+        masterMixerSO.UpdateVolume(value);
+    }
+
+    public void UpdateSFXVolume(float value)
+    {
+        sfxMixerSO.UpdateVolume(value);
+    }
+    public void UpdateMusicVolume(float value)
+    {
+        musicMixerSO.UpdateVolume(value);
+    }
+    public float GetMasterVolume()
+    {
+        return masterMixerSO.GetCurrentVolumeValue();
+    }
+    public float GetSFXVolume()
+    {
+        return sfxMixerSO.GetCurrentVolumeValue();
+    }
+    public float GetMusicVolume()
+    {
+        return musicMixerSO.GetCurrentVolumeValue();
     }
 }
