@@ -8,7 +8,7 @@ public class Projectile : MonoBehaviour
 
     private void Start()
     {
-        transform.rotation = Quaternion.Euler(0f, 0f, 90f);
+        transform.rotation = Quaternion.Euler(0f, 0f, 0f);
     }
     public void SetPool(ProjectilePoolSO poolSO)
     {

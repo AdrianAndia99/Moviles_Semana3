@@ -31,19 +31,27 @@ public class ProjectilePoolSO : ScriptableObject
 
     public GameObject GetPooledObject()
     {
-        if (!isInitialized) 
+        if (!isInitialized)
         {
             InitializePool();
-        } 
-
+        }
         for (int i = 0; i < pooledObjects.Count; i++)
         {
-            if (!pooledObjects[i].activeInHierarchy)
+            GameObject go = pooledObjects[i];
+
+            if (go == null)
             {
-                return pooledObjects[i];
+                pooledObjects.RemoveAt(i);
+                i--;
+               
+            }
+
+            if (!go.activeInHierarchy)
+            {
+                return go;
             }
         }
-        GameObject newObj = CreateNewObject();
+        GameObject newObj = Instantiate(projectilePrefab);
         newObj.SetActive(false);
         pooledObjects.Add(newObj);
         return newObj;
