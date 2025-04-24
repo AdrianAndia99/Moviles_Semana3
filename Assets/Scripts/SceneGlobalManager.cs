@@ -32,7 +32,10 @@ public class SceneGlobalManager : MonoBehaviour
     }
 
     public void LoadSelector()
+
     {
+       // StartCoroutine(LoadInitialSceneAsync());
+       // SceneManager.LoadSceneAsync("LoadScene", LoadSceneMode.Single);
         SceneManager.LoadSceneAsync("CharacterSelection", LoadSceneMode.Single);
     }
     public void LoadGameWithResults()
@@ -119,6 +122,8 @@ public class SceneGlobalManager : MonoBehaviour
     }
     public void ShowResults()
     {
+        //
+
         Scene gameScene = SceneManager.GetSceneByName("MainGameGyroscope");
         if (gameScene.IsValid())
         {

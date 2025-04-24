@@ -26,7 +26,7 @@ public class ColorManager : MonoBehaviour
 
         for (int i = 0; i < uiImageElements.Length; i++)
         {
-            Debug.Log("nosewe");    
+            //Debug.Log("nosewe");    
             uiImageElements[i].color = palette.buttonColor;
         }
 

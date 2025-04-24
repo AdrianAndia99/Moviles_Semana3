@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
+       
         ShipData selectedShip = gameData.selectedShip;
 
         if (selectedShip != null)
