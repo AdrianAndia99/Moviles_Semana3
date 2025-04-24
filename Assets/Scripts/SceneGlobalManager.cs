@@ -12,6 +12,8 @@ public class SceneGlobalManager : MonoBehaviour
     [SerializeField] private AudioMixerSO musicMixerSO;
     [SerializeField] private ScoreManager scoreManager;
 
+    [SerializeField] private ProjectilePoolSO projectilePoolSO;
+
     private void Awake()
     {
         if (Instance != null && Instance != this)
@@ -133,6 +135,7 @@ public class SceneGlobalManager : MonoBehaviour
     {
         scoreManager.ResetScore();
         SceneManager.UnloadSceneAsync("MainGameGyroscope");
+        projectilePoolSO.ClearPool();
         StartCoroutine(ReloadGameScene());
     }
 

@@ -350,6 +350,7 @@ MonoBehaviour:
   sfxMixerSO: {fileID: 11400000, guid: 24f32b5ba11b443418558c826c2ef6f3, type: 2}
   musicMixerSO: {fileID: 11400000, guid: c76e3530849c05145949b840edc19266, type: 2}
   scoreManager: {fileID: 11400000, guid: 4f98e2b1d8aff0046b0cd519d2b85c7e, type: 2}
+  projectilePoolSO: {fileID: 11400000, guid: 90685f2e4a0942f41a2745e10268829f, type: 2}
 --- !u!224 &955573816
 RectTransform:
   m_ObjectHideFlags: 0

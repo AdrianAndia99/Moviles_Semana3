@@ -28,34 +28,64 @@ public class ProjectilePoolSO : ScriptableObject
 
         isInitialized = true;
     }
-
     public GameObject GetPooledObject()
     {
-        if (!isInitialized) 
+        if (!isInitialized)
         {
             InitializePool();
-        } 
-
-        for (int i = 0; i < pooledObjects.Count; i++)
+        }
+        for (int i = pooledObjects.Count - 1; i >= 0; i--)
         {
+            if (pooledObjects[i] == null)
+            {
+                pooledObjects.RemoveAt(i);
+                continue;
+            }
+
             if (!pooledObjects[i].activeInHierarchy)
             {
                 return pooledObjects[i];
             }
         }
+
         GameObject newObj = CreateNewObject();
         newObj.SetActive(false);
         pooledObjects.Add(newObj);
         return newObj;
     }
+
     public void ReturnToPool(GameObject projectile)
     {
-        projectile.SetActive(false);
+        if (projectile != null)
+        {
+            projectile.SetActive(false);
+        }
     }
+
     private GameObject CreateNewObject()
     {
         GameObject obj = GameObject.Instantiate(projectilePrefab);
         obj.transform.SetParent(poolParent);
         return obj;
+    }
+
+    public void ClearPool()
+    {
+        for (int i = 0; i < pooledObjects.Count; i++)
+        {
+            if (pooledObjects[i] != null)
+            {
+                Destroy(pooledObjects[i]);
+            }
+        }
+
+        pooledObjects.Clear();
+
+        if (poolParent != null)
+        {
+            Destroy(poolParent.gameObject);
+        }
+
+        isInitialized = false;
     }
 }
