@@ -58,6 +58,43 @@ public class SceneGlobalManager : MonoBehaviour
                                         Application.Quit();
 #endif
     }
+    public void LoadSceneWithScreenLoad(string nameScene)
+    {
+        StartCoroutine(LoadWithLoadingScreen(nameScene));
+    }
+    private IEnumerator LoadWithLoadingScreen(string targetScene)
+    {
+        // 1. Cargar escena de carga en modo aditivo
+        AsyncOperation loadLoading = SceneManager.LoadSceneAsync("LoadScene", LoadSceneMode.Additive);
+        yield return loadLoading;
+
+        // Opcional: espera 1 frame para que la escena de carga inicialice su UI
+        yield return null;
+
+        // 2. Comienza a cargar la escena real
+        AsyncOperation loadTarget = SceneManager.LoadSceneAsync(targetScene, LoadSceneMode.Single);
+        loadTarget.allowSceneActivation = false;
+
+        float progress = 0f;
+        while (progress < 0.9f)
+        {
+            progress = Mathf.Clamp01(loadTarget.progress / 0.9f);
+
+            // Aquí puedes actualizar una barra si tienes referencia
+            // Ejemplo: loadingBarFill.fillAmount = progress;
+
+            yield return null;
+        }
+
+        yield return new WaitForSeconds(0.5f); // Para darle tiempo al jugador
+
+        // 3. Activar escena cuando esté lista
+        loadTarget.allowSceneActivation = true;
+
+        // 4. Esperar un momento y cerrar escena de carga
+        yield return new WaitForSeconds(1f); // Para dejar ver la barra llena
+        SceneManager.UnloadSceneAsync("LoadScene");
+    }
 
     private IEnumerator LoadInitialSceneAsync()
     {

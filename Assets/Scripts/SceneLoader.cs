@@ -25,5 +25,8 @@ public class SceneLoader : MonoBehaviour
     {
         SceneGlobalManager.Instance.RestartGame();
     }
-
+    public void LoadSceneWithScreenLoader(string name)
+    {
+        SceneGlobalManager.Instance.LoadSceneWithScreenLoad(name);
+    }
 }
