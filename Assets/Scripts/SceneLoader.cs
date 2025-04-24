@@ -14,8 +14,7 @@ public class SceneLoader : MonoBehaviour
     public void OnBackToMenu()
     {
         SceneGlobalManager.Instance.UnloadGameAndResults();
-        SceneManager.LoadSceneAsync("MainMenu", LoadSceneMode.Single);
-
+        SceneManager.LoadSceneAsync("LoadScene");
     }
     public void OnQuitButton()
     {
@@ -25,9 +24,5 @@ public class SceneLoader : MonoBehaviour
     public void OnPlayAgain()
     {
         SceneGlobalManager.Instance.RestartGame();
-    }
-    public void OnReturnToMenuClicked()
-    {
-        SceneGlobalManager.Instance.ReturnToMenu();
     }
 }

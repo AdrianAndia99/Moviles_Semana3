@@ -7,13 +7,10 @@ public class SceneGlobalManager : MonoBehaviour
     public static SceneGlobalManager Instance;
 
     [Header("Carga de Escena")]
-    [SerializeField] private Image loadingBarFill;
-    private string initialScene = "MainMenu";
     [SerializeField] private AudioMixerSO masterMixerSO;
     [SerializeField] private AudioMixerSO sfxMixerSO;
     [SerializeField] private AudioMixerSO musicMixerSO;
     [SerializeField] private ScoreManager scoreManager;
-    [SerializeField] private GameObject loadingUI;
 
     private void Awake()
     {
@@ -29,10 +26,6 @@ public class SceneGlobalManager : MonoBehaviour
 
     private void Start()
     {
-        if (SceneManager.GetActiveScene().name == "LoadScene")
-        {
-            StartCoroutine(LoadInitialSceneAsync());
-        }
         masterMixerSO.EnableSound();
         sfxMixerSO.EnableSound();
         musicMixerSO.EnableSound();
@@ -61,45 +54,6 @@ public class SceneGlobalManager : MonoBehaviour
 #else
                                         Application.Quit();
 #endif
-    }
-
-    private IEnumerator LoadInitialSceneAsync()
-    {
-        AsyncOperation operation = SceneManager.LoadSceneAsync(initialScene);
-        operation.allowSceneActivation = false;
-
-        float targetProgress = 0f;
-
-        while (!operation.isDone)
-        {
-            float actualProgress = Mathf.Clamp01(operation.progress / 0.9f);
-
-            targetProgress = Mathf.MoveTowards(targetProgress, actualProgress, Time.deltaTime * 0.5f);
-
-            if (loadingBarFill != null)
-                loadingBarFill.fillAmount = targetProgress;
-
-            if (targetProgress >= 0.9f)
-            {
-                yield return new WaitForSeconds(1f);
-
-                while (loadingBarFill.fillAmount < 1f)
-                {
-                    loadingBarFill.fillAmount += Time.deltaTime;
-                    yield return null;
-                }
-
-                operation.allowSceneActivation = true;
-                yield return null;
-                HideLoadingUI();
-            }
-
-            yield return null;
-        }
-    }
-    public void AssignLoadingBar(Image bar)
-    {
-        loadingBarFill = bar;
     }
 
     private IEnumerator LoadGameAndResultsAsync()
@@ -206,42 +160,5 @@ public class SceneGlobalManager : MonoBehaviour
                 rootObjects[i].SetActive(true);
             }
         }
-    }
-    public void ShowLoadingUI()
-    {
-        if (loadingUI != null)
-        {
-            loadingUI.SetActive(true);
-        }
-    }
-
-    public void HideLoadingUI()
-    {
-        if (loadingUI != null)
-        {
-            loadingUI.SetActive(false);
-        }
-    }
-    public void ReturnToMenu()
-    {
-        ShowLoadingUI();
-
-        StartCoroutine(ReturnToMenuCoroutine());
-    }
-
-    private IEnumerator ReturnToMenuCoroutine()
-    {
-        yield return SceneManager.UnloadSceneAsync("MainGameGyroscope");
-        yield return SceneManager.UnloadSceneAsync("Results");
-
-        AsyncOperation menuLoad = SceneManager.LoadSceneAsync("MainMenu", LoadSceneMode.Additive);
-        while (!menuLoad.isDone)
-        {
-            float progress = Mathf.Clamp01(menuLoad.progress / 0.9f);
-            loadingBarFill.fillAmount = progress;
-            yield return null;
-        }
-
-        HideLoadingUI();
     }
 }
