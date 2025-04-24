@@ -7,12 +7,17 @@ public class ResultScreen : MonoBehaviour
     [SerializeField] private TextMeshProUGUI scoreText;
     [SerializeField] private ScoreManager scoreManager;
 
-    private void Awake()
+    private void OnEnable()
     {
-        //pruebas
+        scoreManager.OnScoreChanged.AddListener(UpdateScoreText);
+        UpdateScoreText(scoreManager.currentScore);
     }
-    private void Start()
+    private void OnDisable()
     {
-        scoreText.text = "Score: " + scoreManager.currentScore.ToString("0");
+        scoreManager.OnScoreChanged.RemoveListener(UpdateScoreText);
+    }
+    private void UpdateScoreText(float score)
+    {
+        scoreText.text = "Score: " + Mathf.FloorToInt(score);
     }
 }

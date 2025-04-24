@@ -12,5 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e0eac21866dc3f4cad149589485c9c7, type: 3}
   m_Name: PlayerScore
   m_EditorClassIdentifier: 
-  currentScore: 0
-  scoreRate: 0
+  currentScore: 26.1
+  OnScoreChanged:
+    m_PersistentCalls:
+      m_Calls: []

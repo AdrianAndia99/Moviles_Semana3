@@ -2,7 +2,6 @@
 using UnityEngine.SceneManagement;
 using System.Collections;
 using UnityEngine.UI;
-
 public class SceneGlobalManager : MonoBehaviour
 {
     public static SceneGlobalManager Instance;
@@ -13,6 +12,8 @@ public class SceneGlobalManager : MonoBehaviour
     [SerializeField] private AudioMixerSO masterMixerSO;
     [SerializeField] private AudioMixerSO sfxMixerSO;
     [SerializeField] private AudioMixerSO musicMixerSO;
+    [SerializeField] private ScoreManager scoreManager;
+    [SerializeField] private GameObject loadingUI;
 
     private void Awake()
     {
@@ -89,6 +90,8 @@ public class SceneGlobalManager : MonoBehaviour
                 }
 
                 operation.allowSceneActivation = true;
+                yield return null;
+                HideLoadingUI();
             }
 
             yield return null;
@@ -170,5 +173,75 @@ public class SceneGlobalManager : MonoBehaviour
     public float GetMusicVolume()
     {
         return musicMixerSO.GetCurrentVolumeValue();
+    }
+
+    public void RestartGame()
+    {
+        scoreManager.ResetScore();
+        SceneManager.UnloadSceneAsync("MainGameGyroscope");
+        StartCoroutine(ReloadGameScene());
+    }
+
+    private IEnumerator ReloadGameScene()
+    {
+        AsyncOperation gameLoad = SceneManager.LoadSceneAsync("MainGameGyroscope", LoadSceneMode.Additive);
+        yield return gameLoad;
+
+        Scene resultsScene = SceneManager.GetSceneByName("Results");
+        if (resultsScene.IsValid())
+        {
+            GameObject[] rootObjects = resultsScene.GetRootGameObjects();
+            for (int i = 0; i < rootObjects.Length; i++)
+            {
+                rootObjects[i].SetActive(false);
+            }
+        }
+
+        Scene gameScene = SceneManager.GetSceneByName("MainGameGyroscope");
+        if (gameScene.IsValid())
+        {
+            GameObject[] rootObjects = gameScene.GetRootGameObjects();
+            for (int i = 0; i < rootObjects.Length; i++)
+            {
+                rootObjects[i].SetActive(true);
+            }
+        }
+    }
+    public void ShowLoadingUI()
+    {
+        if (loadingUI != null)
+        {
+            loadingUI.SetActive(true);
+        }
+    }
+
+    public void HideLoadingUI()
+    {
+        if (loadingUI != null)
+        {
+            loadingUI.SetActive(false);
+        }
+    }
+    public void ReturnToMenu()
+    {
+        ShowLoadingUI();
+
+        StartCoroutine(ReturnToMenuCoroutine());
+    }
+
+    private IEnumerator ReturnToMenuCoroutine()
+    {
+        yield return SceneManager.UnloadSceneAsync("MainGameGyroscope");
+        yield return SceneManager.UnloadSceneAsync("Results");
+
+        AsyncOperation menuLoad = SceneManager.LoadSceneAsync("MainMenu", LoadSceneMode.Additive);
+        while (!menuLoad.isDone)
+        {
+            float progress = Mathf.Clamp01(menuLoad.progress / 0.9f);
+            loadingBarFill.fillAmount = progress;
+            yield return null;
+        }
+
+        HideLoadingUI();
     }
 }
