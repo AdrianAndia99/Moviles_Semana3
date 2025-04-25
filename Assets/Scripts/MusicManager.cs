@@ -21,7 +21,7 @@ public class MusicManager : MonoBehaviour
         {
             clipSelection.PlayLoop();
         }
-        else if(currentScene == "MainGameGyroscope")
+        else if(currentScene == "MainGameGyroscope" && currentScene == "Results")
         {
             clipGamePlay.PlayLoop();
         }
