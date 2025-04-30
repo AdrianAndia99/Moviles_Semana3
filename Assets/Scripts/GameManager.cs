@@ -27,7 +27,10 @@ public class GameManager : MonoBehaviour
             Debug.LogWarning("No ship selected in GameData!");
         }
     }
-
+    void ShowNotification()
+    {
+        notificationAdd.ShowNewScore();
+    }
     private void Update()
     {
         scoreManager.UpdateScore();
