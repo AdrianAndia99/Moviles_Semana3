@@ -4,6 +4,7 @@ using UnityEngine.SceneManagement;
 [CreateAssetMenu(fileName = "HealthManager", menuName = "InfiniteSpaceShooter/Health")]
 public class HealthManager : ScriptableObject
 {
+   
     private float maxHealth;
     public float currentHealth;
 
@@ -21,6 +22,8 @@ public class HealthManager : ScriptableObject
         if (currentHealth <= 0)
         {
             SceneGlobalManager.Instance.ShowResults();
+            //aqui iria la condicion
+           
         }
     }
 }
