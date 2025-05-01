@@ -21,6 +21,10 @@ public class HealthManager : ScriptableObject
         if (currentHealth <= 0)
         {
             SceneGlobalManager.Instance.ShowResults();
+            if (NotificationModified.Instance != null)
+            {
+                NotificationModified.Instance.SendRoundEndedNotification();
+            }
         }
     }
 }

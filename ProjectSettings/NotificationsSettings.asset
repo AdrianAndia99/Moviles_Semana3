@@ -50,6 +50,15 @@
                     "guid": "20f2a330b0f597244a1d1a0c860801a5",
                     "type": 3
                 }
+            },
+            {
+                "Id": "icon_1",
+                "Type": 0,
+                "Asset": {
+                    "fileID": 2800000,
+                    "guid": "66b3f8c8cb10b6e448f02d2921d1209d",
+                    "type": 3
+                }
             }
         ]
     }
