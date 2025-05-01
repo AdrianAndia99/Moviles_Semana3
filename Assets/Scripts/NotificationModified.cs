@@ -8,21 +8,21 @@ using UnityEngine.Android;
 
 public class NotificationModified : MonoBehaviour
 {
-    public static NotificationModified Instance { get; private set; }
+    //public static NotificationModified Instance { get; private set; }
 
     private const string defaultChannelId = "default_channel";
     private const string highScoreChannelId = "highscore_channel";
 
-    private void Awake()
-    {
-        if (Instance != null && Instance != this)
-        {
-            Destroy(gameObject);
-            return;
-        }
-        Instance = this;
-        DontDestroyOnLoad(gameObject);
-    }
+    //private void Awake()
+    //{
+    //    if (Instance != null && Instance != this)
+    //    {
+    //        Destroy(gameObject);
+    //        return;
+    //    }
+    //    Instance = this;
+    //    DontDestroyOnLoad(gameObject);
+    //}
 
     [Header("Referencias")]
     [SerializeField] private ScoreManager scoreManager;

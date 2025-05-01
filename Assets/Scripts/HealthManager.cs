@@ -4,6 +4,7 @@ using UnityEngine.SceneManagement;
 [CreateAssetMenu(fileName = "HealthManager", menuName = "InfiniteSpaceShooter/Health")]
 public class HealthManager : ScriptableObject
 {
+    [SerializeField] private NotificationModified notificationModified;
     private float maxHealth;
     public float currentHealth;
 
@@ -21,9 +22,9 @@ public class HealthManager : ScriptableObject
         if (currentHealth <= 0)
         {
             SceneGlobalManager.Instance.ShowResults();
-            if (NotificationModified.Instance != null)
+            if (notificationModified != null)
             {
-                NotificationModified.Instance.SendRoundEndedNotification();
+                notificationModified.SendRoundEndedNotification();
             }
         }
     }

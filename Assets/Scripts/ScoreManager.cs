@@ -4,6 +4,8 @@ using UnityEngine.Events;
 [CreateAssetMenu(fileName = "ScoreManager", menuName = "InfiniteSpaceShooter/Score")]
 public class ScoreManager : ScriptableObject
 {
+    [SerializeField] private NotificationModified _notificationModified;
+
     public float currentScore;
     public float highScore;
 
@@ -42,9 +44,9 @@ public class ScoreManager : ScriptableObject
         {
             highScore = currentScore;
             OnHighScoreChanged.Invoke(highScore);
-            if (NotificationModified.Instance != null)
+            if (_notificationModified != null)
             {
-                NotificationModified.Instance.SendNewHighScoreNotification();
+                _notificationModified.SendNewHighScoreNotification();
 
             }
         }
