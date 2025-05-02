@@ -26,8 +26,8 @@ public class GameManager : MonoBehaviour
         {
             Debug.LogWarning("No ship selected in GameData!");
         }
-        healthManager.OnHealthDepleted += ShowNotification;
-        Debug.Log("GameManager enabled");
+        //healthManager.OnHealthDepleted += ShowNotification; //
+       // Debug.Log("GameManager enabled");
     }
     private void Awake()
     {
@@ -36,6 +36,7 @@ public class GameManager : MonoBehaviour
     
     private void OnEnable()
     {
+        healthManager.OnHealthDepleted -= ShowNotification;
         // ShowNotification();
         healthManager.OnHealthDepleted += ShowNotification;
         Debug.Log("GameManager enabled");
@@ -43,7 +44,7 @@ public class GameManager : MonoBehaviour
     private void OnDisable()
     {
         // ShowNotification();
-        healthManager.OnHealthDepleted -= ShowNotification;
+       // healthManager.OnHealthDepleted -= ShowNotification; nofunciona XD
         Debug.Log("GameManager disabled");
     }
     void ShowNotification()

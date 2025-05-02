@@ -14,8 +14,8 @@ public class NotificationSimple : MonoBehaviour
     [SerializeField] ScoreManager scoreText;
 
     // Guardan el ID de la última notificación enviada por tipo
-    int normalScoreNotificationId = -1;
-    int highScoreNotificationId = -1;
+    //int normalScoreNotificationId = -1;
+    //int highScoreNotificationId = -1;
 
     private void Start()
     {
@@ -59,15 +59,15 @@ public class NotificationSimple : MonoBehaviour
 
     public void SendNewScore(string title, string text, int fireTimeInHours)
     {
+        AndroidNotificationCenter.CancelAllScheduledNotifications();
         AndroidNotification scoreNotification = new AndroidNotification();
         scoreNotification.Title = title;
         scoreNotification.Text = text;
         scoreNotification.FireTime = DateTime.Now.AddHours(fireTimeInHours);
-        scoreNotification.SmallIcon = "icon_0";
-        scoreNotification.LargeIcon = "icon_1";
+        scoreNotification.SmallIcon = "bbokarismall";
+        scoreNotification.LargeIcon = "largenormal";
 
-        // Cancela la notificación anterior si ya existe
-        if (normalScoreNotificationId != -1)
+        /*if (normalScoreNotificationId != -1)
         {
             AndroidNotificationCenter.CancelNotification(normalScoreNotificationId);
             AndroidNotificationCenter.CancelAllDisplayedNotifications();
@@ -75,26 +75,29 @@ public class NotificationSimple : MonoBehaviour
         }
 
         // Envía una nueva notificación y guarda el nuevo ID
-        normalScoreNotificationId = AndroidNotificationCenter.SendNotification(scoreNotification, "normal_score");
+        normalScoreNotificationId =*/
+        AndroidNotificationCenter.SendNotification(scoreNotification, "normal_score");
     }
 
     public void SendNewHighScore(string title, string text, int fireTimeInHours)
     {
+        AndroidNotificationCenter.CancelAllScheduledNotifications();
         AndroidNotification scoreNotification = new AndroidNotification();
         scoreNotification.Title = title;
         scoreNotification.Text = text;
         scoreNotification.FireTime = DateTime.Now.AddHours(fireTimeInHours);
-        scoreNotification.SmallIcon = "icon_0";
-        scoreNotification.LargeIcon = "icon_1";
+        scoreNotification.SmallIcon = "wolfsmall";
+        scoreNotification.LargeIcon = "largehigh";
 
-        if (highScoreNotificationId != -1)
+        /*if (highScoreNotificationId != -1)
         {
             AndroidNotificationCenter.CancelNotification(highScoreNotificationId);
             AndroidNotificationCenter.CancelAllDisplayedNotifications();
             AndroidNotificationCenter.CancelAllScheduledNotifications();
         }
 
-        highScoreNotificationId = AndroidNotificationCenter.SendNotification(scoreNotification, "high_score");
+        highScoreNotificationId = */
+        AndroidNotificationCenter.SendNotification(scoreNotification, "high_score");
     }
 
     public void ShowNewScore()

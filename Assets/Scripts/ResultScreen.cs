@@ -14,7 +14,7 @@ public class ResultScreen : MonoBehaviour
     }
     private void Start()
     {
-        
+
 
         //scoreText.text = "Score: " + scoreManager.GetLastRecordedScore());
     }
