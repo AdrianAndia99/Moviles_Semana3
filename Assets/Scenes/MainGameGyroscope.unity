@@ -796,6 +796,7 @@ MonoBehaviour:
   player: {fileID: 711992898}
   scoreManager: {fileID: 11400000, guid: 4f98e2b1d8aff0046b0cd519d2b85c7e, type: 2}
   healthManager: {fileID: 11400000, guid: 0b1416986e2c28543be6117c214c04d1, type: 2}
+  notificationAdd: {fileID: 1311682348}
 --- !u!4 &815242349
 Transform:
   m_ObjectHideFlags: 0
@@ -886,6 +887,51 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 228.87787, y: 673.9201, z: 8.474071}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1311682347
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1311682349}
+  - component: {fileID: 1311682348}
+  m_Layer: 0
+  m_Name: notification
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1311682348
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1311682347}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b3759fade9173742bdf5f29960afb04, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scoreText: {fileID: 11400000, guid: 4f98e2b1d8aff0046b0cd519d2b85c7e, type: 2}
+--- !u!4 &1311682349
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1311682347}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 855.51495, y: 494.0749, z: 58.120876}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1483,7 +1529,7 @@ AudioListener:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1877669980}
-  m_Enabled: 1
+  m_Enabled: 0
 --- !u!20 &1877669982
 Camera:
   m_ObjectHideFlags: 0
@@ -1660,3 +1706,4 @@ SceneRoots:
   - {fileID: 1303212695}
   - {fileID: 1443172407}
   - {fileID: 1480323542}
+  - {fileID: 1311682349}

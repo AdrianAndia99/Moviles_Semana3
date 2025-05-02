@@ -45,6 +45,6 @@ public class PoolingController : MonoBehaviour
     private void CountSpawnedEnemies()
     {
         _countObstacles++;
-        Debug.Log("Obstáculos generados: " + _countObstacles);
+        //Debug.Log("Obstáculos generados: " + _countObstacles);
     }
 }

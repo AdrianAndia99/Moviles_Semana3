@@ -25,7 +25,7 @@ public class PlayerController : MonoBehaviour
         if (useGyro)
         {
             Input.gyro.enabled = true;
-            Debug.Log("Gyroscope enabled: " + Input.gyro.enabled);
+          //  Debug.Log("Gyroscope enabled: " + Input.gyro.enabled);
         }
     }
 
@@ -39,7 +39,7 @@ public class PlayerController : MonoBehaviour
 
         transform.position = newPosition;
 
-        Debug.Log($"Gyro active: {Input.gyro.enabled}, Rotation Y: {Input.gyro.rotationRateUnbiased.y}");
+       // Debug.Log($"Gyro active: {Input.gyro.enabled}, Rotation Y: {Input.gyro.rotationRateUnbiased.y}");
 
         if (Input.touchCount > 0 && Input.GetTouch(0).phase != TouchPhase.Ended)
         {
@@ -69,7 +69,7 @@ public class PlayerController : MonoBehaviour
         {
             spriteRenderer.sprite = shipData.shipSprite;
         }
-        Debug.Log("Ship set: " + shipData.shipName);
+       // Debug.Log("Ship set: " + shipData.shipName);
     }
     private void FireProjectile()
     {

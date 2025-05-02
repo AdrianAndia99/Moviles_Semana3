@@ -16,7 +16,7 @@ public class Obstacles : MonoBehaviour
 
         if (collision.gameObject.CompareTag("Wall"))
         {
-            Debug.Log("Enemy collide");
+            //Debug.Log("Enemy collide");
             isSetUp = false;
             obstacleType.ObjectReturn(this.gameObject);
         }

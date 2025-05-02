@@ -68,7 +68,13 @@ public class NotificationSimple : MonoBehaviour
     }
     public void ShowNewScore()
     {
-        SendNewScore(" New score registered: " + scoreText.currentScore, "Round finished!");
+        SendNewScore("Round finished!", " New score registered: " + scoreText.currentScore);
+        Debug.Log("waza1aa normalito");
+    }
+    public void ShowNewHighScore()
+    { 
+        SendNewScore(" New Maximum Score ", "New record registered! " + scoreText.currentScore);
+        Debug.Log("waza1aa");
     }
     public void ButtonFunction()
     {

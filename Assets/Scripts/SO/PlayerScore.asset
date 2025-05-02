@@ -12,5 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e0eac21866dc3f4cad149589485c9c7, type: 3}
   m_Name: PlayerScore
   m_EditorClassIdentifier: 
-  currentScore: 0
-  scoreRate: 0
+  currentScore: 7.6981797
+  scoreRate: 3
+  scoreRecord:
+  - 12.24435
+  - 16.026876
+  - 17.123056
+  - 17.141394
+  - 16.011395
+  - 23.228085
+  - 17.701
