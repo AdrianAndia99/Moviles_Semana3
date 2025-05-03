@@ -13,16 +13,22 @@ public class PanelControll : MonoBehaviour
     public Color player;
     public Color enemies;
     // public SpriteRenderer playerRenderer;
+    public Color showColor;
     public ColorPalette palette;
+    public Image showColorImage;
     public void UpdateColor()
     {
-        float r = redSlider.value;
-        float g = greenSlider.value;
-        float b = blueSlider.value;
+        /* float r = redSlider.value;
+         float g = greenSlider.value;
+         float b = blueSlider.value;*/
 
-        
+
     }
-    
+    private void Update()
+    {
+        showColorImage.color = new Color(redSlider.value, greenSlider.value, blueSlider.value);
+    }
+
     public void Background(Button b)
     {
         background = new Color(redSlider.value, greenSlider.value, blueSlider.value);
