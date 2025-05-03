@@ -64,7 +64,7 @@ public class NotificationSimple : MonoBehaviour
         scoreNotification.Title = title;
         scoreNotification.Text = text;
         scoreNotification.FireTime = DateTime.Now.AddHours(fireTimeInHours);
-        scoreNotification.SmallIcon = "bbokarismall";
+        scoreNotification.SmallIcon = "alien";
         scoreNotification.LargeIcon = "largenormal";
 
         /*if (normalScoreNotificationId != -1)
@@ -86,7 +86,7 @@ public class NotificationSimple : MonoBehaviour
         scoreNotification.Title = title;
         scoreNotification.Text = text;
         scoreNotification.FireTime = DateTime.Now.AddHours(fireTimeInHours);
-        scoreNotification.SmallIcon = "wolfsmall";
+        scoreNotification.SmallIcon = "spaceship";
         scoreNotification.LargeIcon = "largehigh";
 
         /*if (highScoreNotificationId != -1)
@@ -98,6 +98,9 @@ public class NotificationSimple : MonoBehaviour
 
         highScoreNotificationId = */
         AndroidNotificationCenter.SendNotification(scoreNotification, "high_score");
+
+
+
     }
 
     public void ShowNewScore()

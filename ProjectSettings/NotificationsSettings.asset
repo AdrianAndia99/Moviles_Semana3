@@ -41,6 +41,43 @@
                 "com.unity3d.player.UnityPlayerActivity"
             ]
         },
-        "DrawableResources": []
+        "DrawableResources": [
+            {
+                "Id": "alien",
+                "Type": 0,
+                "Asset": {
+                    "fileID": 2800000,
+                    "guid": "b07d1a0cc19020b479ca424e90cf28cd",
+                    "type": 3
+                }
+            },
+            {
+                "Id": "largenormal",
+                "Type": 1,
+                "Asset": {
+                    "fileID": 2800000,
+                    "guid": "a29a082b536217b40a7205aec368e4cc",
+                    "type": 3
+                }
+            },
+            {
+                "Id": "spaceship",
+                "Type": 0,
+                "Asset": {
+                    "fileID": 2800000,
+                    "guid": "d69dfb824e4a5e54786c786abbc4525e",
+                    "type": 3
+                }
+            },
+            {
+                "Id": "largehigh",
+                "Type": 1,
+                "Asset": {
+                    "fileID": 2800000,
+                    "guid": "272d9789f6dd9284ea0c2f04326b8b1f",
+                    "type": 3
+                }
+            }
+        ]
     }
 }
