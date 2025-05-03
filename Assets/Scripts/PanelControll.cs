@@ -1,3 +1,5 @@
+using NUnit.Framework;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 public class PanelControll : MonoBehaviour
@@ -16,12 +18,24 @@ public class PanelControll : MonoBehaviour
     public Color showColor;
     public ColorPalette palette;
     public Image showColorImage;
+    [SerializeField] List <Image> imageColor = new List<Image>();
+    [SerializeField] ColorPalette colorPalette;
     public void UpdateColor()
     {
+
         /* float r = redSlider.value;
          float g = greenSlider.value;
          float b = blueSlider.value;*/
 
+
+    }
+    private void Start()
+    {
+        imageColor[0].color = colorPalette.backgroundColor;
+        imageColor[1].color = colorPalette.uiTextColor;
+        imageColor[2].color = colorPalette.buttonColor;
+        imageColor[3].color = colorPalette.playerColor;
+        imageColor[4].color = colorPalette.enemyColor;
 
     }
     private void Update()
